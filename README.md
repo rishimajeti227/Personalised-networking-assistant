@@ -18,6 +18,7 @@
 <p align="center">
   <a href="#-system-architecture">Architecture</a> •
   <a href="#-key-features">Key Features</a> •
+  <a href="#-user-interface--dashboard-walkthrough">Dashboard UI</a> •
   <a href="#-file-structure">File Structure</a> •
   <a href="#-installation--setup">Setup</a> •
   <a href="#-running-the-application">Run Guide</a> •
@@ -92,6 +93,58 @@ graph TD
 *   **📜 Session Telemetry**: Automatically records user activities and event sessions for persistent history logging.
 *   **📊 Feedback Loop**: Allows users to rate generated conversation starters with 👍/👎, tracking preferences in a telemetry log file to support future model optimizations.
 *   **⚡ Built for Scale**: Integrates unit testing with `pytest` and performance benchmarking with `locust`.
+
+---
+
+## 🖥️ User Interface & Dashboard Walkthrough
+
+Here is a visual tour of the interactive Streamlit dashboard:
+
+### 1. Main Dashboard Entry
+The main user interface offers a clean dark-mode input system for event details and topic interests, along with a secondary tool for verification.
+<p align="center">
+  <img src="assets/Landing_Page.png" alt="Main Dashboard Entry" width="800"/>
+</p>
+
+---
+
+### 2. Zero-Shot Topic Extraction & Automated Verification
+When you submit an event description, the system extracts thematic keywords and automatically provides Wikipedia definitions for absolute context.
+<p align="center">
+  <img src="assets/Event%20Sample1.png" alt="Topic Extraction and Definition verification" width="800"/>
+</p>
+
+---
+
+### 3. AI-Generated Conversation Starters & Feedback Loop
+Based on your profile, the system drafts icebreakers. You can rate suggestions with 👍 or 👎 to refine future generation runs.
+<p align="center">
+  <img src="assets/Event%20Sample2.png" alt="Generated Starters and Feedback Loop" width="800"/>
+</p>
+
+---
+
+### 4. Interactive Fact Verification Tool
+A manual query utility to double-check definitions and descriptions of complex terms before networking.
+<p align="center">
+  <img src="assets/Fact%20verification.png" alt="Manual Fact Verification" width="800"/>
+</p>
+
+---
+
+### 5. Persistent Session History
+Retain records of previously entered events and extracted themes.
+<p align="center">
+  <img src="assets/Session_History.png" alt="Persistent Session History" width="800"/>
+</p>
+
+---
+
+### 6. Performance Telemetry Logs
+A live audit trail showing registered feedback logs and telemetry records.
+<p align="center">
+  <img src="assets/Performance_Logs.png" alt="Performance Telemetry Logs" width="800"/>
+</p>
 
 ---
 
@@ -245,14 +298,30 @@ Run the entire test suite:
 pytest
 ```
 
-Run tests with details & coverage:
+*Note: On Windows, if execution policies block running the `pytest` executable directly, run it via the Python module invocation instead:*
 ```bash
-pytest -v
+python -m pytest
+```
+
+### Running Tests with Coverage
+
+To run all test files at once and compute code coverage for the backend `app`:
+```bash
+pytest --cov=app tests/
+```
+
+If running via python module:
+```bash
+python -m pytest --cov=app tests/
 ```
 
 To run a specific test file (e.g., event analyzer tests):
 ```bash
 pytest tests/test_event_analyzer.py
+```
+or:
+```bash
+python -m pytest tests/test_event_analyzer.py
 ```
 
 ### Performance Load Testing (Locust)
