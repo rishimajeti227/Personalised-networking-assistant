@@ -296,9 +296,9 @@ Session logs and feedback logs are written in real-time to local `history.json` 
 
 ## 👥 Team Members
 
-|**Majeti NagaSai Rishi**|
-|**Kotha Meghana**|
-|**Riya**|
-|**Buddavarapu Taraka Venkata Manikanta**|
+- **Majeti NagaSai Rishi**
+- **Kotha Meghana**
+- **Riya**
+- **Buddavarapu Taraka Venkata Manikanta**
 
 </div>
